@@ -22,17 +22,18 @@ a{color:inherit}
 .igl{display:inline-flex;align-items:center;gap:.4rem;direction:ltr;unicode-bidi:isolate}
 .ig{width:18px;height:18px}
 .menu{display:flex;gap:1.2rem}
-.split{display:grid;grid-template-columns:1fr 1fr;position:relative}
+.split{display:grid;grid-template-columns:1fr 1fr;position:relative;max-width:1120px;margin:0 auto;padding:0 2rem}
 .split::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line);z-index:1}
-.col{padding:0 5px}
-.col.a{padding-top:14vh}
+.col{padding:0 1.5rem}
+.col.a{padding-top:16vh}
 .col.b{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
-.inner{display:flex;flex-direction:column;gap:10px;will-change:transform}
+.inner{display:flex;flex-direction:column;gap:3.5rem;will-change:transform}
+.inner picture{width:66%;align-self:flex-start}
+.inner picture:nth-of-type(even){align-self:flex-end}
 .inner img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;cursor:zoom-in}
-.t{padding:1.5rem .8rem;min-height:36vh;display:flex;flex-direction:column;justify-content:center}
-.t h1,.t h2{font-weight:100;font-size:clamp(2.4rem,7vw,7rem);margin:0;line-height:.95}
-.t p{color:var(--dim);margin:.8rem 0 0;font-size:.85rem;letter-spacing:.12em}
-.mid{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);letter-spacing:.4em;font-size:.85rem;color:var(--dim);z-index:5;background:var(--bg);padding:.3rem .6rem .3rem 1rem;white-space:nowrap}
+.t{padding:1.5rem 0;min-height:30vh;display:flex;flex-direction:column;justify-content:center}
+.t h1,.t h2{font-weight:100;font-size:clamp(2.2rem,4.2vw,4.2rem);margin:0;line-height:1}
+.t p{color:var(--dim);margin:.8rem 0 0;font-size:.82rem;letter-spacing:.14em}
 .sec{max-width:1300px;margin:0 auto;padding:6rem 1.5rem 2rem;border-top:1px solid var(--line)}
 .sec header{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
 .sec h2{font-weight:100;font-size:clamp(2.2rem,6vw,5rem);margin:0;line-height:1}
@@ -42,11 +43,10 @@ a{color:inherit}
 .soon{aspect-ratio:2/3;border:1px dashed var(--line);display:grid;place-items:center;color:var(--dim);font-size:.85rem;letter-spacing:.1em}
 .contact{padding:7rem 1.5rem 6rem;text-align:center;border-top:1px solid var(--line);margin-top:5rem}
 .contact h2{font-weight:100;font-size:clamp(2.2rem,6vw,4.5rem);margin:0 0 2rem}
-.contact .big{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-size:clamp(1.5rem,4.5vw,3rem);font-weight:100;direction:ltr;unicode-bidi:isolate;border-bottom:1px solid var(--ink);padding-bottom:.2rem}
-.contact .big .ig{width:1em;height:1em}
-.contact .row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2.2rem;font-size:1rem;color:var(--dim)}
-.contact .row a{text-decoration:none;direction:ltr;unicode-bidi:isolate;color:var(--ink);font-variant-numeric:tabular-nums}
-.contact .row a:hover,.contact .big:hover{color:var(--dim)}
+.links{display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap}
+.lnk{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-size:clamp(1.2rem,2.4vw,1.7rem);font-weight:100;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;transition:color .25s}
+.lnk .ig{width:1.7em;height:1.7em}
+.lnk:hover,.lnk:focus-visible{color:var(--dim)}
 .foot{padding:1.5rem;text-align:center;color:var(--dim);font-size:.75rem;letter-spacing:.1em}
 dialog{border:0;padding:0;background:#000;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;color:#fff}
 dialog::backdrop{background:#000}
@@ -59,7 +59,11 @@ dialog img{width:100%;height:100%;object-fit:contain;cursor:pointer}
 @media (max-width:760px){
   .menu{display:none}
   .bar{padding:.7rem .9rem}.bar nav{gap:.9rem;font-size:.78rem}.bar a{white-space:nowrap}.logo{width:46px;height:46px}
+  .split{padding:0;max-width:none}
+  .col{padding:0 5px}
   .col.a{padding-top:9vh}
+  .inner{gap:10px}
+  .inner picture{width:100%}
   .t{min-height:24vh;padding:1rem .6rem}
   .t h1,.t h2{font-size:clamp(1.7rem,7.5vw,3rem)}
   .t p{font-size:.75rem}
@@ -96,7 +100,6 @@ dialog img{width:100%;height:100%;object-fit:contain;cursor:pointer}
       <div class="t"><h2>בשחור-לבן.</h2><p>נשים · התארגנות · רווקות</p></div>
   </div></div>
 </div>
-<div class="mid">מושמוש</div>
 
 <section class="sec" id="weddings">
   <header><h2>חתונות</h2><p>מהבוקר בבית ועד הריקוד האחרון.</p></header>
@@ -125,11 +128,10 @@ dialog img{width:100%;height:100%;object-fit:contain;cursor:pointer}
 </section>
 
 <section class="contact" id="contact">
-  <h2>הכל קורה באינסטגרם.</h2>
-  <a class="big" href="https://www.instagram.com/mooshmoosh_social/" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg><span>@mooshmoosh_social</span></a>
-  <div class="row">
-    <a href="tel:0503300547">050 330 0547</a>
-    <a href="https://wa.me/972503300547" target="_blank" rel="noopener">וואטסאפ</a>
+  <h2>בואו נדבר.</h2>
+  <div class="links">
+    <a class="lnk" href="https://www.instagram.com/mooshmoosh_social/" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg><span>@mooshmoosh_social</span></a>
+    <a class="lnk" href="https://wa.me/972503300547" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span>050 330 0547</span></a>
   </div>
 </section>
 <div class="foot">מושמוש · צילום חתונות, משפחות, הריון ונשים</div>
