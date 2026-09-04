@@ -3,58 +3,142 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="מושמוש סושיאל – צלמת חתונות, משפחות, הריון ונשים">
-<title>שני הצדדים של מושמוש</title>
+<meta name="description" content="מושמוש פוטו – צלמת חתונות, משפחות, הריון ונשים">
+<title>מושמוש פוטו</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300&family=Bebas+Neue&display=swap">
 <style>
 :root{--bg:#fff;--ink:#141414;--dim:#8a877f;--line:#e6e4df}
+html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Heebo',system-ui,sans-serif;font-weight:300}
-.wrap{direction:rtl}
-.bar{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.25rem;mix-blend-mode:difference;color:#fff}
-.logo{width:50px;height:50px;border-radius:50%;filter:invert(1) grayscale(1)}
-.bar a{color:#fff;text-decoration:none;font-size:.85rem;letter-spacing:.1em;direction:ltr;unicode-bidi:isolate}
+img{display:block}
+a{color:inherit}
+.bar{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.25rem;mix-blend-mode:difference;color:#fff}
+.logo{width:54px;height:54px;filter:invert(1)}
+.bar nav{display:flex;gap:1.4rem;align-items:center;font-size:.85rem;letter-spacing:.08em}
+.bar a{text-decoration:none}
+.bar .ph{direction:ltr;unicode-bidi:isolate}
+.igl{display:inline-flex;align-items:center;gap:.4rem;direction:ltr;unicode-bidi:isolate}
+.ig{width:18px;height:18px}
+.menu{display:flex;gap:1.2rem}
 .split{display:grid;grid-template-columns:1fr 1fr;position:relative}
 .split::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line);z-index:1}
 .col{padding:0 5px}
 .col.a{padding-top:14vh}
 .col.b{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
 .inner{display:flex;flex-direction:column;gap:10px;will-change:transform}
-.col.a .inner{gap:10px}
-.inner img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+.inner img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;cursor:zoom-in}
 .t{padding:1.5rem .8rem;min-height:36vh;display:flex;flex-direction:column;justify-content:center}
 .t h1,.t h2{font-weight:100;font-size:clamp(2.4rem,7vw,7rem);margin:0;line-height:.95}
 .t p{color:var(--dim);margin:.8rem 0 0;font-size:.85rem;letter-spacing:.12em}
 .mid{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.34em;font-size:.85rem;color:var(--dim);z-index:5;background:var(--bg);padding:.3rem .8rem;direction:ltr;white-space:nowrap}
-.contact{padding:6rem 1.5rem 5rem;text-align:center;border-top:1px solid var(--line)}
-.contact h2{font-weight:100;font-size:clamp(2.2rem,6vw,4.5rem);margin:0 0 1rem}
-.contact a{color:var(--ink);text-decoration:none;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:100;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--dim)}
-.contact p{color:var(--dim);margin:1rem 0 0}
-.contact p a{font-size:.9rem;border:0;color:var(--dim)}
+.sec{max-width:1300px;margin:0 auto;padding:6rem 1.5rem 2rem;border-top:1px solid var(--line)}
+.sec header{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.sec h2{font-weight:100;font-size:clamp(2.2rem,6vw,5rem);margin:0;line-height:1}
+.sec p{color:var(--dim);margin:0;font-size:.9rem;letter-spacing:.06em}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;cursor:zoom-in}
+.soon{aspect-ratio:2/3;border:1px dashed var(--line);display:grid;place-items:center;color:var(--dim);font-size:.85rem;letter-spacing:.1em}
+.contact{padding:7rem 1.5rem 6rem;text-align:center;border-top:1px solid var(--line);margin-top:5rem}
+.contact h2{font-weight:100;font-size:clamp(2.2rem,6vw,4.5rem);margin:0 0 2rem}
+.contact .big{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-size:clamp(1.5rem,4.5vw,3rem);font-weight:100;direction:ltr;unicode-bidi:isolate;border-bottom:1px solid var(--ink);padding-bottom:.2rem}
+.contact .big .ig{width:1em;height:1em}
+.contact .row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2.2rem;font-size:1rem;color:var(--dim)}
+.contact .row a{text-decoration:none;direction:ltr;unicode-bidi:isolate;color:var(--ink);font-variant-numeric:tabular-nums}
+.contact .row a:hover,.contact .big:hover{color:var(--dim)}
+.foot{padding:1.5rem;text-align:center;color:var(--dim);font-size:.75rem;letter-spacing:.1em}
+dialog{border:0;padding:0;background:#000;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;color:#fff}
+dialog::backdrop{background:#000}
+dialog img{width:100%;height:100%;object-fit:contain;cursor:pointer}
+.lbx,.lbp,.lbn{position:fixed;background:none;border:0;color:#fff;cursor:pointer;font-weight:100;font-family:inherit}
+.lbx{top:.8rem;left:1.2rem;font-size:2rem;line-height:1}
+.lbp,.lbn{top:50%;transform:translateY(-50%);font-size:2.6rem;padding:1rem;line-height:1}
+.lbp{right:.4rem}.lbn{left:.4rem}
+.lbc{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);font-size:.75rem;letter-spacing:.18em;direction:ltr;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.menu{display:none}.grid{grid-template-columns:1fr 1fr}.sec{padding-top:4rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="wrap" lang="he">
-<div class="bar"><img class="logo" src="img/logo.jpg" alt="מושמוש סושיאל"><a href="tel:0503300547">050 330 0547</a></div>
+<div class="bar">
+  <a href="#top" aria-label="מושמוש פוטו"><svg class="logo" viewBox="0 0 200 200" direction="ltr" role="img" aria-label="מושמוש פוטו">
+  <circle cx="100" cy="100" r="100" fill="#000"/>
+  <text x="100" y="97" text-anchor="middle" font-family="'Bebas Neue',Impact,sans-serif" font-size="66" fill="#fff" letter-spacing="1">MOOSH</text>
+  <text x="100" y="97" text-anchor="middle" font-family="'Bebas Neue',Impact,sans-serif" font-size="66" fill="#fff" fill-opacity=".6" letter-spacing="1" transform="translate(0,200) scale(1,-1)">MOOSH</text>
+  <defs><path id="arc" d="M 30 100 A 70 70 0 0 0 170 100"/></defs>
+  <text font-family="'Bebas Neue',Impact,sans-serif" font-size="21" fill="#fff" letter-spacing="7"><textPath href="#arc" startOffset="50%" text-anchor="middle">PHOTO</textPath></text>
+</svg></a>
+  <nav>
+    <div class="menu"><a href="#weddings">חתונות</a><a href="#family">משפחות והריון</a><a href="#women">נשים</a></div>
+    <a class="igl" href="https://www.instagram.com/mooshmoosh_social/" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg><span>mooshmoosh_social</span></a>
+    <a class="ph" href="tel:0503300547">050 330 0547</a>
+  </nav>
+</div>
+
 <div class="split" id="split">
   <div class="col a">
     <div class="inner">
-      <div class="t"><h1>בצבע.</h1><p>חתונות · משפחות · הריון</p></div>
-      <img src="img/wedding-garden.jpeg" alt="נשיקה בגן"><img src="img/wedding-chuppah.jpeg" alt="חתן וכלה מתחת לחופה"><img src="img/family-newborn.jpeg" alt="הורים עם תינוק ניובורן"><img src="img/family-sisters.jpeg" alt="אחות מרימה ילדה קטנה">
+      <div class="t"><h1 id="top">בצבע.</h1><p>חתונות · משפחות · הריון</p></div>
+      <picture><source type="image/webp" srcset="img/wedding-garden-600.webp 600w, img/wedding-garden-1080.webp 1080w" sizes="(max-width:760px) 50vw, 50vw"><img src="img/wedding-garden.jpeg" width="1080" height="1920" alt="נשיקה בגן" loading="lazy" decoding="async" data-lb data-full="img/wedding-garden-1080.webp"></picture>
+      <picture><source type="image/webp" srcset="img/wedding-chuppah-600.webp 600w, img/wedding-chuppah-1080.webp 1080w" sizes="(max-width:760px) 50vw, 50vw"><img src="img/wedding-chuppah.jpeg" width="1080" height="1920" alt="חתן וכלה מתחת לחופה" loading="lazy" decoding="async" data-lb data-full="img/wedding-chuppah-1080.webp"></picture>
+      <picture><source type="image/webp" srcset="img/family-newborn-600.webp 600w, img/family-newborn-1080.webp 1080w" sizes="(max-width:760px) 50vw, 50vw"><img src="img/family-newborn.jpeg" width="1080" height="1920" alt="הורים עם תינוק ניובורן" loading="lazy" decoding="async" data-lb data-full="img/family-newborn-1080.webp"></picture>
+      <picture><source type="image/webp" srcset="img/family-sisters-600.webp 600w, img/family-sisters-1080.webp 1080w" sizes="(max-width:760px) 50vw, 50vw"><img src="img/family-sisters.jpeg" width="1080" height="1920" alt="אחות מרימה ילדה קטנה" loading="lazy" decoding="async" data-lb data-full="img/family-sisters-1080.webp"></picture>
     </div>
   </div>
   <div class="col b"><div class="inner" id="b">
-      <img src="img/wedding-makeup.jpeg" alt="כלה באיפור, שחור-לבן"><img src="img/women-satin.jpeg" alt="אישה בשמלת סאטן, שחור-לבן"><img src="img/women-friends.jpeg" alt="שתי חברות צוחקות, שחור-לבן">
+      <picture><source type="image/webp" srcset="img/wedding-makeup-600.webp 600w, img/wedding-makeup-1080.webp 1080w" sizes="(max-width:760px) 50vw, 50vw"><img src="img/wedding-makeup.jpeg" width="1080" height="1620" alt="כלה באיפור, שחור-לבן" loading="lazy" decoding="async" data-lb data-full="img/wedding-makeup-1080.webp"></picture>
+      <picture><source type="image/webp" srcset="img/women-satin-600.webp 600w, img/women-satin-1080.webp 1080w" sizes="(max-width:760px) 50vw, 50vw"><img src="img/women-satin.jpeg" width="1080" height="1620" alt="אישה בשמלת סאטן, שחור-לבן" loading="lazy" decoding="async" data-lb data-full="img/women-satin-1080.webp"></picture>
+      <picture><source type="image/webp" srcset="img/women-friends-600.webp 600w, img/women-friends-1080.webp 1080w" sizes="(max-width:760px) 50vw, 50vw"><img src="img/women-friends.jpeg" width="1080" height="1620" alt="שתי חברות צוחקות, שחור-לבן" loading="lazy" decoding="async" data-lb data-full="img/women-friends-1080.webp"></picture>
       <div class="t"><h2>בשחור-לבן.</h2><p>נשים · התארגנות · רווקות</p></div>
   </div></div>
 </div>
-<div class="mid">MOOSH MOOSH SOCIAL</div>
-<section class="contact">
-  <h2>בואו נדבר.</h2>
-  <a href="tel:0503300547">050 330 0547</a>
-  <p><a href="https://www.instagram.com/mooshmoosh_social/" target="_blank" rel="noopener">@mooshmoosh_social</a></p>
+<div class="mid">MOOSH MOOSH PHOTO</div>
+
+<section class="sec" id="weddings">
+  <header><h2>חתונות</h2><p>מהבוקר בבית ועד הריקוד האחרון.</p></header>
+  <div class="grid">
+    <picture><source type="image/webp" srcset="img/wedding-makeup-600.webp 600w, img/wedding-makeup-1080.webp 1080w" sizes="(max-width:760px) 50vw, 33vw"><img src="img/wedding-makeup.jpeg" width="1080" height="1620" alt="כלה באיפור, שחור-לבן" loading="lazy" decoding="async" data-lb data-full="img/wedding-makeup-1080.webp"></picture>
+    <picture><source type="image/webp" srcset="img/wedding-garden-600.webp 600w, img/wedding-garden-1080.webp 1080w" sizes="(max-width:760px) 50vw, 33vw"><img src="img/wedding-garden.jpeg" width="1080" height="1920" alt="נשיקה בגן" loading="lazy" decoding="async" data-lb data-full="img/wedding-garden-1080.webp"></picture>
+    <picture><source type="image/webp" srcset="img/wedding-chuppah-600.webp 600w, img/wedding-chuppah-1080.webp 1080w" sizes="(max-width:760px) 50vw, 33vw"><img src="img/wedding-chuppah.jpeg" width="1080" height="1920" alt="חתן וכלה מתחת לחופה" loading="lazy" decoding="async" data-lb data-full="img/wedding-chuppah-1080.webp"></picture>
+  </div>
 </section>
-</div>
+
+<section class="sec" id="family">
+  <header><h2>משפחות והריון</h2><p>ניובורן, הריון, ימי הולדת. בבית או בסטודיו.</p></header>
+  <div class="grid">
+    <picture><source type="image/webp" srcset="img/family-newborn-600.webp 600w, img/family-newborn-1080.webp 1080w" sizes="(max-width:760px) 50vw, 33vw"><img src="img/family-newborn.jpeg" width="1080" height="1920" alt="הורים עם תינוק ניובורן" loading="lazy" decoding="async" data-lb data-full="img/family-newborn-1080.webp"></picture>
+    <picture><source type="image/webp" srcset="img/family-sisters-600.webp 600w, img/family-sisters-1080.webp 1080w" sizes="(max-width:760px) 50vw, 33vw"><img src="img/family-sisters.jpeg" width="1080" height="1920" alt="אחות מרימה ילדה קטנה" loading="lazy" decoding="async" data-lb data-full="img/family-sisters-1080.webp"></picture>
+    <div class="soon">צילומי הריון · בקרוב</div>
+  </div>
+</section>
+
+<section class="sec" id="women">
+  <header><h2>נשים</h2><p>צילומי נשים ומסיבות רווקות. בלי פוזות מאולצות.</p></header>
+  <div class="grid">
+    <picture><source type="image/webp" srcset="img/women-satin-600.webp 600w, img/women-satin-1080.webp 1080w" sizes="(max-width:760px) 50vw, 33vw"><img src="img/women-satin.jpeg" width="1080" height="1620" alt="אישה בשמלת סאטן, שחור-לבן" loading="lazy" decoding="async" data-lb data-full="img/women-satin-1080.webp"></picture>
+    <picture><source type="image/webp" srcset="img/women-friends-600.webp 600w, img/women-friends-1080.webp 1080w" sizes="(max-width:760px) 50vw, 33vw"><img src="img/women-friends.jpeg" width="1080" height="1620" alt="שתי חברות צוחקות, שחור-לבן" loading="lazy" decoding="async" data-lb data-full="img/women-friends-1080.webp"></picture>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>הכל קורה באינסטגרם.</h2>
+  <a class="big" href="https://www.instagram.com/mooshmoosh_social/" target="_blank" rel="noopener"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg><span>@mooshmoosh_social</span></a>
+  <div class="row">
+    <a href="tel:0503300547">050 330 0547</a>
+    <a href="https://wa.me/972503300547" target="_blank" rel="noopener">וואטסאפ</a>
+  </div>
+</section>
+<div class="foot">MOOSH MOOSH PHOTO · מושמוש פוטו</div>
+
+<dialog id="lb">
+  <img id="lbimg" src="" alt="">
+  <button class="lbx" id="lbx" type="button" aria-label="סגירה">×</button>
+  <button class="lbp" id="lbp" type="button" aria-label="הקודמת">‹</button>
+  <button class="lbn" id="lbn" type="button" aria-label="הבאה">›</button>
+  <div class="lbc" id="lbc"></div>
+</dialog>
+
 <script>
 const split=document.getElementById('split'),b=document.getElementById('b');
 function tick(){
@@ -65,6 +149,18 @@ function tick(){
 }
 addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);
 [...b.querySelectorAll('img')].forEach(im=>im.addEventListener('load',tick));tick();
+
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbc=document.getElementById('lbc');
+const imgs=[...document.querySelectorAll('img[data-lb]')];let cur=0;
+function show(i){cur=(i+imgs.length)%imgs.length;const im=imgs[cur];lbimg.src=im.dataset.full||im.src;lbimg.alt=im.alt;lbc.textContent=String(cur+1).padStart(2,'0')+' / '+String(imgs.length).padStart(2,'0')}
+imgs.forEach((im,i)=>im.addEventListener('click',()=>{show(i);lb.showModal()}));
+lbimg.addEventListener('click',()=>show(cur+1));
+document.getElementById('lbn').addEventListener('click',()=>show(cur+1));
+document.getElementById('lbp').addEventListener('click',()=>show(cur-1));
+document.getElementById('lbx').addEventListener('click',()=>lb.close());
+addEventListener('keydown',e=>{if(!lb.open)return;if(e.key==='ArrowLeft')show(cur+1);if(e.key==='ArrowRight')show(cur-1)});
+let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)show(dx<0?cur+1:cur-1)});
 </script>
 </body>
 </html>
