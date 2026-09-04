@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="מושמוש סושיאל – צלמת חתונות, משפחות, הריון ונשים">
+<title>שני הצדדים של מושמוש</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300&family=Bebas+Neue&display=swap">
+<style>
+:root{--bg:#fff;--ink:#141414;--dim:#8a877f;--line:#e6e4df}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Heebo',system-ui,sans-serif;font-weight:300}
+.wrap{direction:rtl}
+.bar{position:fixed;inset:0 0 auto 0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.25rem;mix-blend-mode:difference;color:#fff}
+.logo{width:50px;height:50px;border-radius:50%;filter:invert(1) grayscale(1)}
+.bar a{color:#fff;text-decoration:none;font-size:.85rem;letter-spacing:.1em;direction:ltr;unicode-bidi:isolate}
+.split{display:grid;grid-template-columns:1fr 1fr;position:relative}
+.split::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line);z-index:1}
+.col{padding:0 5px}
+.col.a{padding-top:14vh}
+.col.b{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
+.inner{display:flex;flex-direction:column;gap:10px;will-change:transform}
+.col.a .inner{gap:10px}
+.inner img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+.t{padding:1.5rem .8rem;min-height:36vh;display:flex;flex-direction:column;justify-content:center}
+.t h1,.t h2{font-weight:100;font-size:clamp(2.4rem,7vw,7rem);margin:0;line-height:.95}
+.t p{color:var(--dim);margin:.8rem 0 0;font-size:.85rem;letter-spacing:.12em}
+.mid{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.34em;font-size:.85rem;color:var(--dim);z-index:5;background:var(--bg);padding:.3rem .8rem;direction:ltr;white-space:nowrap}
+.contact{padding:6rem 1.5rem 5rem;text-align:center;border-top:1px solid var(--line)}
+.contact h2{font-weight:100;font-size:clamp(2.2rem,6vw,4.5rem);margin:0 0 1rem}
+.contact a{color:var(--ink);text-decoration:none;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:100;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--dim)}
+.contact p{color:var(--dim);margin:1rem 0 0}
+.contact p a{font-size:.9rem;border:0;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap" lang="he">
+<div class="bar"><img class="logo" src="img/logo.jpg" alt="מושמוש סושיאל"><a href="tel:0503300547">050 330 0547</a></div>
+<div class="split" id="split">
+  <div class="col a">
+    <div class="inner">
+      <div class="t"><h1>בצבע.</h1><p>חתונות · משפחות · הריון</p></div>
+      <img src="img/wedding-garden.jpeg" alt="נשיקה בגן"><img src="img/wedding-chuppah.jpeg" alt="חתן וכלה מתחת לחופה"><img src="img/family-newborn.jpeg" alt="הורים עם תינוק ניובורן"><img src="img/family-sisters.jpeg" alt="אחות מרימה ילדה קטנה">
+    </div>
+  </div>
+  <div class="col b"><div class="inner" id="b">
+      <img src="img/wedding-makeup.jpeg" alt="כלה באיפור, שחור-לבן"><img src="img/women-satin.jpeg" alt="אישה בשמלת סאטן, שחור-לבן"><img src="img/women-friends.jpeg" alt="שתי חברות צוחקות, שחור-לבן">
+      <div class="t"><h2>בשחור-לבן.</h2><p>נשים · התארגנות · רווקות</p></div>
+  </div></div>
+</div>
+<div class="mid">MOOSH MOOSH SOCIAL</div>
+<section class="contact">
+  <h2>בואו נדבר.</h2>
+  <a href="tel:0503300547">050 330 0547</a>
+  <p><a href="https://www.instagram.com/mooshmoosh_social/" target="_blank" rel="noopener">@mooshmoosh_social</a></p>
+</section>
+</div>
+<script>
+const split=document.getElementById('split'),b=document.getElementById('b');
+function tick(){
+  const r=split.getBoundingClientRect();const range=r.height-innerHeight;
+  const p=range>0?Math.min(1,Math.max(0,-r.top/range)):1;
+  const over=b.scrollHeight-innerHeight;
+  b.style.transform=`translateY(${-over*(1-p)}px)`;
+}
+addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);
+[...b.querySelectorAll('img')].forEach(im=>im.addEventListener('load',tick));tick();
+</script>
+</body>
+</html>
