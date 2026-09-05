@@ -45,6 +45,14 @@ a{color:inherit}
 .col.a{padding-top:6vh}
 .col.b{position:sticky;top:0;height:100vh;overflow:hidden}
 .inner{display:flex;flex-direction:column;gap:3.5rem;will-change:transform}
+/* Move the black-and-white column on the compositor where the browser
+   supports scroll-driven animations (Chrome, Safari 26+). Older browsers
+   fall back to the JS tick below. */
+@supports (animation-timeline: view()){
+  .split{view-timeline:--split block}
+  .col.b .inner{animation:rise linear both;animation-timeline:--split;animation-range:contain 0% contain 100%}
+}
+@keyframes rise{from{transform:translateY(calc(-100% + 100vh))}to{transform:translateY(0)}}
 .inner picture{width:66%;align-self:flex-start}
 .inner picture:nth-of-type(even){align-self:flex-end}
 .inner img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;cursor:zoom-in}
@@ -182,19 +190,30 @@ dialog img{width:100%;height:100%;object-fit:contain;cursor:pointer}
 
 <script>
 const split=document.getElementById('split'),b=document.getElementById('b'),colB=document.querySelector('.col.b');
-function tick(){
-  // colB is 100vh (large viewport) so its height does not change when the
-  // mobile address bar collapses; innerHeight does, and caused a jump.
-  const vh=colB.clientHeight;
-  const range=split.offsetHeight-vh;
-  const p=range>0?Math.min(1,Math.max(0,-split.getBoundingClientRect().top/range)):1;
-  const over=b.scrollHeight-vh;
-  b.style.transform=`translateY(${-over*(1-p)}px)`;
+if(!CSS.supports('animation-timeline: view()')){
+  // Fallback for browsers without scroll-driven animations. A rAF loop
+  // instead of the scroll event: Safari fires scroll events out of step
+  // with rendering, which made the column stutter.
+  let last=-1;
+  function tick(){
+    if(scrollY!==last){
+      last=scrollY;
+      // colB is 100vh (large viewport) so its height does not change when the
+      // mobile address bar collapses; innerHeight does, and caused a jump.
+      const vh=colB.clientHeight;
+      const range=split.offsetHeight-vh;
+      const p=range>0?Math.min(1,Math.max(0,-split.getBoundingClientRect().top/range)):1;
+      const over=b.scrollHeight-vh;
+      b.style.transform=`translate3d(0,${-over*(1-p)}px,0)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  addEventListener('resize',()=>{last=-1});
+  [...b.querySelectorAll('img')].forEach(im=>im.addEventListener('load',()=>{last=-1}));
+  tick();
 }
-addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);
 const bar=document.querySelector('.bar');
 addEventListener('scroll',()=>bar.classList.toggle('scrolled',scrollY>160),{passive:true});
-[...b.querySelectorAll('img')].forEach(im=>im.addEventListener('load',tick));tick();
 
 const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbc=document.getElementById('lbc');
 const imgs=[...document.querySelectorAll('img[data-lb]')];let cur=0;
