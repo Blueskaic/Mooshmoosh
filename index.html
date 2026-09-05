@@ -5,30 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="מושמוש – צלמת חתונות, משפחות, הריון ונשים">
 <title>מושמוש</title>
-<script>const bgv=new URLSearchParams(location.search).get('bg');if(bgv)document.documentElement.dataset.bg=bgv;</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300&display=swap">
 <style>
-:root{--bg:#fff;--ink:#141414;--dim:#8a877f;--line:#e6e4df;--noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");--vig:radial-gradient(ellipse 80% 70% at 50% 45%,transparent 50%,rgba(0,0,0,.11) 100%)}
+:root{--bg:#fff;--ink:#141414;--dim:#8a877f;--line:#e6e4df}
 html{scroll-behavior:smooth}
-body{position:relative;z-index:0}
-body::before,body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;display:none}
-[data-bg=grain] body::after{display:block;mix-blend-mode:multiply;background:var(--noise)}
-[data-bg=vignette] body::after{display:block;mix-blend-mode:multiply;background:var(--vig),var(--noise)}
-[data-bg=light] body::before{display:block;background:radial-gradient(110vw 90vh at 90% -15%,#fff 0%,rgba(255,255,255,0) 60%),linear-gradient(180deg,#fdfdfc 0%,#eeeeeb 100%)}
-[data-bg=linen] body::before{display:block;opacity:.5;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 4px)}
-[data-bg=duo] body::before{display:block;background:linear-gradient(90deg,#efeeeb 0 50%,transparent 50%)}
-[data-bg=mark] body::before{display:block;background:radial-gradient(circle at 50% 42%,#f0efec 0 34vmax,transparent calc(34vmax + 1px))}
-[data-bg=blobs] body::before,[data-bg=combo] body::before,[data-bg=combo2] body::before,[data-bg=combo3] body::before{display:block;filter:blur(30px);background:radial-gradient(45vmax 40vmax at 15% 20%,rgba(224,178,150,var(--ba,.35)),transparent 70%),radial-gradient(40vmax 45vmax at 85% 30%,rgba(190,200,180,var(--ba,.35)),transparent 70%),radial-gradient(50vmax 40vmax at 50% 95%,rgba(200,190,210,var(--ba,.35)),transparent 70%);animation:drift 24s ease-in-out infinite alternate}
-[data-bg=combo]{--ba:.3}
-[data-bg=combo] body::after{display:block;mix-blend-mode:multiply;background:var(--vig),var(--noise)}
-[data-bg=combo2]{--ba:.45}
-[data-bg=combo2] body::after{display:block;mix-blend-mode:multiply;background:var(--vig)}
-[data-bg=combo3]{--ba:.22}
-[data-bg=combo3] body::after{display:block;mix-blend-mode:multiply;background:var(--noise)}
-@keyframes drift{from{transform:translate(-3%,-2%) scale(1.05)}to{transform:translate(3%,2%) scale(1.1)}}
-@media (prefers-reduced-motion:reduce){body::before{animation:none!important}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Heebo',system-ui,sans-serif;font-weight:300}
 img{display:block}
 a{color:inherit}
