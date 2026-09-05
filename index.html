@@ -5,11 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="מושמוש – צלמת חתונות, משפחות, הריון ונשים">
 <title>מושמוש</title>
+<script>const t=new URLSearchParams(location.search).get('theme');if(t)document.documentElement.dataset.theme=t;</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300&display=swap">
 <style>
 :root{--bg:#fff;--ink:#141414;--dim:#8a877f;--line:#e6e4df}
+[data-theme=paper]{--bg:#f2efe9;--ink:#1a1917;--dim:#8b857b;--line:#dfdad1}
+[data-theme=grain]{--bg:#f7f6f3;--ink:#161616;--dim:#88847c;--line:#e2dfd9}
+[data-theme=dark]{--bg:#161513;--ink:#ece8e1;--dim:#7d786f;--line:#2b2926}
+[data-theme=grain] body::before{content:'';position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.07;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Heebo',system-ui,sans-serif;font-weight:300}
 img{display:block}
@@ -26,7 +31,7 @@ a{color:inherit}
 .split::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line);z-index:1}
 .col{padding:0 1.5rem}
 .col.a{padding-top:16vh}
-.col.b{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
+.col.b{position:sticky;top:0;height:100vh;overflow:hidden}
 .inner{display:flex;flex-direction:column;gap:3.5rem;will-change:transform}
 .inner picture{width:66%;align-self:flex-start}
 .inner picture:nth-of-type(even){align-self:flex-end}
@@ -145,11 +150,14 @@ dialog img{width:100%;height:100%;object-fit:contain;cursor:pointer}
 </dialog>
 
 <script>
-const split=document.getElementById('split'),b=document.getElementById('b');
+const split=document.getElementById('split'),b=document.getElementById('b'),colB=document.querySelector('.col.b');
 function tick(){
-  const r=split.getBoundingClientRect();const range=r.height-innerHeight;
-  const p=range>0?Math.min(1,Math.max(0,-r.top/range)):1;
-  const over=b.scrollHeight-innerHeight;
+  // colB is 100vh (large viewport) so its height does not change when the
+  // mobile address bar collapses; innerHeight does, and caused a jump.
+  const vh=colB.clientHeight;
+  const range=split.offsetHeight-vh;
+  const p=range>0?Math.min(1,Math.max(0,-split.getBoundingClientRect().top/range)):1;
+  const over=b.scrollHeight-vh;
   b.style.transform=`translateY(${-over*(1-p)}px)`;
 }
 addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);
